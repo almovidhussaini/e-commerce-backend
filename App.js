@@ -14,14 +14,14 @@ connectdb()
 const app = express();
 app.use(express.json())
 app.use(express.static(path.join(__dirname+"/build")))
-app.get("*",function(_,res){
-    res.sendFile(
-        path.join(__dirname,"./build/index.html"),
-        function(err){
-            res.send(500).send(err);
-        }
-    );
-} )
+// app.get("*",function(_,res){
+//     res.sendFile(
+//         path.join(__dirname,"./build/index.html"),
+//         function(err){
+//             res.send(500).send(err);
+//         }
+//     );
+// } )
 app.get('/', (req, res) => {
     res.send('A simple Node App is '
         + 'running on this server')
