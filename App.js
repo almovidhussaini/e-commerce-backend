@@ -6,6 +6,10 @@ const dotenv = require('dotenv').config()
 const connectdb= require('./db')
 
 const path = require('path')
+
+
+
+
 connectdb()
 const app = express();
 app.use(express.json())
@@ -18,17 +22,11 @@ app.use(express.static(path.join(__dirname+"/build")))
 //         }
 //     );
 // } )
-<<<<<<< HEAD
 app.get('/', (req, res) => {
-    res.send('A simple Node App is '
-        + 'running on this server')
-    res.end()
+    app.use(express.static(path.join(__dirname+"build")))
+    res.sendFile(path.resolve(__dirname,'build','index.html'))
+    
 })
-=======
-// app.get('/', (req, res) => {
-//     res.sendFile(path.resolve(__dirname,'build'))
-// })
->>>>>>> 4db0e04 (i commit change)
 
 app.use('/product',productRoutes);
 app.use('/user',userroute);
